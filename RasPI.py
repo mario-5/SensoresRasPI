@@ -55,7 +55,7 @@ try:
         
         # Si obtiene una lectura del sensor la registra en el DB
         if humedad is not None and temperatura is not None:
-            SQLs0 = SQLs1 + SQLs2 +'"'+ sensorT +'",' + SQLs3 + "," + SQLs4 + ","+'"H",'
+            SQLs0 = SQLs1 + SQLs2 +'"'+ sensorT +'",' +'"'+ SQLs3+'"' + "," +"'"+ SQLs4+"'" + ","+'"H",'
             SQLs00 =str(temperatura) + "," '"'+ typeT +'"'+ ");"
             write_db(SQLs0 + SQLs00)
             SQLs00 =str(humedad) + "," +'"'+ typeH+'"' + ");"
