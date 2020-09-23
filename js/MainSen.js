@@ -27,8 +27,8 @@ const run = async () => {
 };
 
 for (let i = 0; i < 10; i++) {
-  pausa.sleep(120);
   run().catch(error => console.log(error));
+  pausa.sleep(20);
 }
 
 setTimeout(() => console.log("End Program"), 2000);
