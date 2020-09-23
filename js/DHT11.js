@@ -1,6 +1,8 @@
+//get requires modules
 const { workerData, parentPort } = require("worker_threads");
 var sensor = require("node-dht-sensor");
 var request = require('request');
+//setup date and time
 var d = new Date();
 var hora = d.getHours();
 var minu = d.getMinutes();
