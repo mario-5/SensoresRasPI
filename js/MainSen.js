@@ -41,7 +41,7 @@ for (let i = 0; i < 10; i++) {
 }
 
 // End message
-let temp=hora +':'+minu+':'+segu+':'+mill;
+temp=hora +':'+minu+':'+segu+':'+mill;
 console.log(temp);
 console.log("End Program");
 //setTimeout(() => console.log("End Program"), 2000);
