@@ -1,6 +1,7 @@
 // get necesaries modules
 const { Worker } = require("worker_threads");
 var pausa  = require("sleep");
+var ws=require('./wsconect.js');
 // setup date and time
 var count = 0;
 var d = new Date();
@@ -13,6 +14,10 @@ var mill = d.getMilliseconds();
 console.log("Start Program");
 let temp=hora +':'+minu+':'+segu+':'+mill;
 console.log(temp);
+console.log(ws.AddNumber(5,8));
+valor = ws.Data();
+console.log(valor[0]+" and "+valor[1]);
+
 
 // setup of DHT11 Temperature and Humidity sensor
 const runService = () => {
