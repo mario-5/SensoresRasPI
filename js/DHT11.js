@@ -21,9 +21,10 @@ sensor.read(11, 23, function(err, temperature, humidity) {
     var temp=temperature;
     var humi=humidity;
   }
- 
+  ws.POSTcriaserver ("K1",dia,hora,"H",temp,"T");
+  ws.POSTcriaserver ("K1",dia,hora,"H",humi,"H");
+  ws.log (temp+" "+humi+" "+hora);
 });
-ws.POSTcriaserver ("K1",dia,hora,"H",temp,"T");
-ws.POSTcriaserver ("K1",dia,hora,"H",humi,"H");
+
 
 parentPort.postMessage({ data: hora });
