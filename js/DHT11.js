@@ -3,6 +3,7 @@ const { workerData, parentPort } = require("worker_threads");
 var sensor = require("node-dht-sensor");
 var request = require('request');
 var ws=require('./wsconect.js'); //API connection functions
+var utiles=require('./utiles.js'); //general use utilities
 //setup date and time
 var d = new Date();
 var dia = d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
@@ -23,7 +24,7 @@ sensor.read(11, 23, function(err, temperature, humidity) {
   }
   ws.POSTcriaserver ("K1",dia,hora,"H",temp,"T");
   ws.POSTcriaserver ("K1",dia,hora,"H",humi,"H");
-  ws.log (temp+" "+humi+" "+hora);
+  utiles.logfs (temp+" "+humi+" "+hora);
 });
 
 
