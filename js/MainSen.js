@@ -1,16 +1,13 @@
 // get necesaries modules
 const { Worker } = require("worker_threads");
 var pausa  = require("sleep");
+var utiles = require('./utiles.js');
 // setup date and time
 var count = 0;
-var d = new Date();
-var hora = d.getHours();
-var minu = d.getMinutes();
-var segu = d.getSeconds();
 
 //initial console message
 console.log("Start Program");
-let tempHora =hora +':'+minu+':'+segu;
+let tempHora =utiles.stringDate().SHour
 console.log(tempHora);
 
 
@@ -42,4 +39,5 @@ for (let i = 0; i < 10; i++) {
 
 // End message
 console.log("End Program");
+utiles.logfs("End Program "+utiles.stringDate().SHour);
 //setTimeout(() => console.log("End Program"), 2000);
