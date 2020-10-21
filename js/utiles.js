@@ -12,7 +12,7 @@ var d = new Date();
 var dia = d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
 var hora = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
 
-var log_file = fs.createWriteStream('./debug.log', {flags : 'w'});
+var log_file = fs.createWriteStream('/home/pi/iot/debug.log', {flags : 'a'});
 var log_stdout = process.stdout;
 
   log_file.write(dia+" "+hora+" "+util.format(text) + '\n');

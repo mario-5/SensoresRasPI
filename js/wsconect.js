@@ -1,7 +1,8 @@
+
 var exports=module.exports={};
 
 exports.POSTcriaserver=function(SensorCode,Day,Time,Place,Value,Type){
-
+var request = require('request');
 var options = {
   'method': 'POST',
   'url': 'http://criaserver:9000',

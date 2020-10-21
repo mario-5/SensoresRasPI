@@ -21,6 +21,7 @@ sensor.read(11, 23, function(err, temperature, humidity) {
     console.log(`temp: ${temperature}°C, humidity: ${humidity}%`);
     var temp=temperature;
     var humi=humidity;
+    utiles.logfs (temp+" "+humi+" "+hora);
   }
   ws.POSTcriaserver ("K1",dia,hora,"H",temp,"T");
   ws.POSTcriaserver ("K1",dia,hora,"H",humi,"H");
