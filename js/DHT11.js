@@ -26,6 +26,7 @@ sensor.read(11, 23, function(err, temperature, humidity) {
   ws.POSTcriaserver ("K1",dia,hora,"H",temp,"T");
   ws.POSTcriaserver ("K1",dia,hora,"H",humi,"H");
   utiles.logfs (temp+" "+humi+" "+hora);
+  ws.POSTTelegram ("K1",dia,hora,"H",temp,"T");
 });
 
 
