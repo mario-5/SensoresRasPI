@@ -27,7 +27,7 @@ var options = {
   'headers': {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify({"text":"{{menssage}}","chat_id":"1102440684"})
+  body: JSON.stringify({"text":'"'+menssage+'"',"chat_id":"1102440684"})
 
 };
 request(options, function (error, response) {
