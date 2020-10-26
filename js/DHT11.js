@@ -26,8 +26,10 @@ sensor.read(11, 23, function(err, temperature, humidity) {
   ws.POSTcriaserver ("K1",dia,hora,"H",temp,"T");
   ws.POSTcriaserver ("K1",dia,hora,"H",humi,"H");
   utiles.logfs (temp+" "+humi+" "+hora);
-  //agrego mensaje via Telegram bot RaspMsg para todos
+  //agrego mensaje via Telegram bot
+
   ws.POSTTelegram ("K1",dia,hora,"H",temp,"T");
+ 
 });
 
 

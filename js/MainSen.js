@@ -4,6 +4,9 @@ var pausa  = require("sleep");
 var utiles = require('./utiles.js');
 // setup date and time
 var count = 0;
+//Setup global variables
+global.k1T ="0";
+global.k1H ="0";
 
 //initial console message
 console.log("Start Program");
@@ -32,9 +35,9 @@ const run = async () => {
 };
 
 // start DHT11 threads
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 50; i++) {
   run().catch(error => console.log(error));
-  pausa.sleep(20);
+  pausa.sleep(120);
 }
 
 // End message
