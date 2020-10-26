@@ -37,7 +37,11 @@ const run = async () => {
 // start DHT11 threads
 for (let i = 0; i < 50; i++) {
   run().catch(error => console.log(error));
+<<<<<<< HEAD
   pausa.sleep(120);
+=======
+  pausa.sleep(60);
+>>>>>>> daca39ce1c8db18c74be0f07f4876fe3a79c7afa
 }
 
 // End message
