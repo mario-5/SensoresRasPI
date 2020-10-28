@@ -9,7 +9,8 @@ var fs = require('fs');
 var util = require('util');
 //setup date and time
 var d = new Date();
-var dia = d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
+var mes = d.getMonth()+1; // correccion del mes que cuenta de 0 a 11
+var dia = d.getDate()+"/"+ mes +"/"+d.getFullYear();
 var hora = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
 
 var log_file = fs.createWriteStream('/home/pi/iot/debug.log', {flags : 'a'});
@@ -24,8 +25,11 @@ exports.stringDate=function(){
 
 //setup date and time
 var d = new Date();
-var dia = d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
+var mes = d.getMonth()+1; // correccion del mes que cuenta de 0 a 11
+var dia = d.getDate()+"/"+ mes +"/"+d.getFullYear();
 var hora = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+console.log(dia);
+
 	return{
 		SDay:dia,
 		SHour:hora,
