@@ -9,7 +9,7 @@ var d = new Date();
 var mes = d.getMonth()+1; // correccion del mes que cuenta de 0 a 11
 var dia = d.getDate()+"/"+ mes +"/"+d.getFullYear();
 var hora = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
-
+var mensaje =" ";
 
 
 // You can do any heavy stuff here, in a synchronous way
@@ -28,8 +28,9 @@ sensor.read(11, 23, function(err, temperature, humidity) {
   ws.POSTcriaserver ("K1",dia,hora,"H",humi,"H");
   utiles.logfs (temp+" "+humi+" "+hora);
   //agrego mensaje via Telegram bot
-
-  ws.POSTTelegram ("K1",dia,hora,"H",temp,"T");
+  mensaje ="El sensor DHT-11 el "+dia+"a la hora "+hora+"en  H la temperatura "+temp);
+ 
+  ws.POSTTelegram (mensaje);
  
 });
 
