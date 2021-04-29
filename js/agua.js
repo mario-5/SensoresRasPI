@@ -29,8 +29,7 @@ if (actual) {
                            console.log (mensaje);
                             }
                else {
-                 relay.writeSync(1);
-                 mensaje = dia+" "+hora+" Activo el riego";
+                 mensaje = dia+" "+hora+" Riego sigue activo el riego";
                  ws.POSTTelegram(mensaje);
                  console.log (mensaje);
                    }
@@ -38,6 +37,7 @@ if (actual) {
       else {
            mensaje ="El sensor Humedad el "+dia+"a la hora "+hora+"en  H indica riego suficiente";
            ws.POSTTelegram (mensaje);
+           relay.writeSync(1);
            }
 
 //agua.watch((err, value) => {
