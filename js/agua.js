@@ -18,29 +18,35 @@ const relay = new Gpio(26, 'out', 'both',{debunceTimeout:10});
 //get actual status
 actual = agua.readSync();
 actualRelay = relay.readSync();
-If (actual){
-           mensaje ="El sensor Humedad el "+dia+"a la hora "+hora+"en  H indica falta de riego");
-           ws.POSTTelegram (mensaje);
-           if (actualRelay){
+
+if (actual) {
+            mensaje ="El sensor Humedad el "+dia+"a la hora "+hora+"en  H indica falta de riego";
+            ws.POSTTelegram (mensaje);
+            if (actualRelay) {
                            relay.writeSync(0);
-                           mensaje ="Activo el riego el "+dia+"a la hora "+hora);
+                           mensaje ="Activo el riego el "+dia+"a la hora "+hora;
                            ws.POSTTelegram (mensaje);
+                           console.log (mensaje);
                             }
+               else {
+                 relay.writeSync(1);
+                 mensaje = dia+" "+hora+" Activo el riego";
+                 ws.POSTTelegram(mensaje);
+                 console.log (mensaje);
+                   }
+            }
       else {
-           mensaje ="El sensor Humedad el "+dia+"a la hora "+hora+"en  H indica riego suficiente");
+           mensaje ="El sensor Humedad el "+dia+"a la hora "+hora+"en  H indica riego suficiente";
            ws.POSTTelegram (mensaje);
            }
-agua.watch((err, value) => {
-  if (err) {
-    throw err;
-  }
 
-  
-  
- 
-});
+//agua.watch((err, value) => {
+ // if (err) {
+   // throw err;
+ // } 
+//});
 
 process.on('SIGINT', _ => {
-  //led.unexport();
+ relay.unexport();
  agua.unexport();
 });
