@@ -11,7 +11,7 @@ var mes = d.getMonth()+1; // correccion del mes que cuenta de 0 a 11
 var dia = d.getDate()+"/"+ mes +"/"+d.getFullYear();
 var hora = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
 var mensaje =" ";
-//const led = new Gpio(17, 'out');
+const led = new Gpio(17, 'out');
 //Setup humidity sensor
 const agua = new Gpio(21, 'in', 'both',{debunceTimeout:50});
 const relay = new Gpio(26, 'out', 'both',{debunceTimeout:10});
@@ -24,6 +24,7 @@ if (actual) {
             ws.POSTTelegram (mensaje);
             if (actualRelay) {
                            relay.writeSync(0);
+                           led.writeSync(1);
                            mensaje ="Activo el riego el "+dia+"a la hora "+hora;
                            ws.POSTTelegram (mensaje);
                            console.log (mensaje);
